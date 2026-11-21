@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public abstract class Musica {
-    private String titulo;
+    private final String titulo;
     private List<NotaMusical> notas;
 
     public Musica(String titulo, List<NotaMusical> notas) {
@@ -18,10 +18,6 @@ public abstract class Musica {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
     public List<NotaMusical> getNotas() {
         return Collections.unmodifiableList(notas);
     }
@@ -30,15 +26,16 @@ public abstract class Musica {
         this.notas = new ArrayList<>(notas);
     }
 
-    public String getSequenciaVisual() {
-        return notas.stream()
-                .map(NotaMusical::getSimbolo)
-                .collect(Collectors.joining(" "));
+    public int getDuracaoNota(int indice) {
+        if (notas != null && !notas.isEmpty() && indice == notas.size() - 1) {
+            return 470;
+        }
+        return 270;
     }
 
     public String getSequenciaParaArquivo() {
         return notas.stream()
-                .map(NotaMusical::getTecla)
+                .map(Enum::name)
                 .collect(Collectors.joining(","));
     }
 
@@ -48,6 +45,9 @@ public abstract class Musica {
 
     @Override
     public String toString() {
-        return String.format("[%s] %s -> %s", getTipo(), titulo, getSequenciaVisual());
+        String sequencia = notas.stream()
+                .map(NotaMusical::getSimbolo)
+                .collect(Collectors.joining(" "));
+        return "[" + getTipo() + "] " + titulo + " -> " + sequencia;
     }
 }

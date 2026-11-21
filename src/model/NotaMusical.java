@@ -1,11 +1,11 @@
 package model;
 
 public enum NotaMusical {
-    L("L", "[L]", 62), // Ré grave (D4)
-    R("R", "[R]", 65), // Fá (F4)
-    Y("Y", "[Y]", 69), // Lá (A4)
-    X("X", "[X]", 71), // Si (B4)
-    A("A", "[A]", 74); // Ré agudo (D5)
+    L("L", "[L]", 62),
+    R("R", "[R]", 65),
+    A("A", "[A]", 69),
+    Y("Y", "[Y]", 71),
+    X("X", "[X]", 74);
 
     private final String tecla;
     private final String simbolo;
@@ -36,9 +36,9 @@ public enum NotaMusical {
         return switch (entrada.trim().toUpperCase()) {
             case "L" -> L;
             case "R" -> R;
+            case "A" -> A;
             case "Y" -> Y;
             case "X" -> X;
-            case "A" -> A;
             default -> null;
         };
     }
