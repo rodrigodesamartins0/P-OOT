@@ -92,9 +92,12 @@ public class Ocarina {
                 sintetizador.tocarMelodiaComHarpa(canonica);
                 pausar(300);
                 sintetizador.tocarMelodiaCompleta(canonica);
-            } else if (canonica.temContinuacao()) {
+            } else {
                 pausar(350);
-                sintetizador.tocarSequenciaMidi(canonica);
+                sintetizador.tocarMelodiaCompleta(canonica);
+                if (canonica.temContinuacao()) {
+                    sintetizador.tocarSequenciaMidi(canonica);
+                }
             }
             canonica.executarEfeito();
         } else {
