@@ -165,7 +165,7 @@ public class Main {
         }
 
         if (ocarina.verificarConflitoMusicaAutoral(notas, repertorio, null)) {
-            System.out.println("\n\u001B[38;2;95;225;249mOlha só! Ei Link! Essa música é parecida demais\ncom as que já possuímos!\u001B[0m");
+            System.out.println("\n\u001B[38;2;95;225;249mOuve só! Ei Link! Essa música é parecida demais\ncom as que já possuímos!\u001B[0m");
             return;
         }
 
@@ -245,7 +245,7 @@ public class Main {
                 return;
             }
             if (ocarina.verificarConflitoMusicaAutoral(novasNotas, repertorio, selecionada)) {
-                System.out.println("\n\u001B[38;2;95;225;249mOlha só! Ei Link! Essa música é parecida demais\ncom as que já possuímos!\u001B[0m");
+                System.out.println("\n\u001B[38;2;95;225;249mOuve só! Ei Link! Essa música é parecida demais\ncom as que já possuímos!\u001B[0m");
                 return;
             }
             selecionada.setNotas(novasNotas);
